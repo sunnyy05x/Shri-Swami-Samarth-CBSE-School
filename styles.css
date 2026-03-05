@@ -1183,6 +1183,16 @@ button {
   align-items: flex-start;
 }
 
+.footer-contact-item a {
+  color: var(--gray-300);
+  transition: color .3s var(--ease);
+}
+
+.footer-contact-item a:hover {
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
 .footer-contact-item .icon {
   color: var(--gold-light);
   font-size: .95rem;
