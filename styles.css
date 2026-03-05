@@ -1176,27 +1176,32 @@ button {
 }
 
 .footer-contact-item {
-  display: flex;
-  gap: 10px;
-  font-size: .85rem;
   margin-bottom: 12px;
-  align-items: flex-start;
 }
 
 .footer-contact-item a {
+  display: flex;
+  gap: 10px;
+  font-size: .85rem;
+  align-items: flex-start;
   color: var(--gray-300);
-  transition: color .3s var(--ease);
+  transition: all .3s var(--ease);
 }
 
 .footer-contact-item a:hover {
   color: var(--gold-light);
-  text-decoration: underline;
+  transform: translateX(4px);
+}
+
+.footer-contact-item a:hover .icon {
+  transform: scale(1.2);
 }
 
 .footer-contact-item .icon {
   color: var(--gold-light);
   font-size: .95rem;
   margin-top: 2px;
+  transition: transform .3s var(--ease);
 }
 
 .footer-bottom {
