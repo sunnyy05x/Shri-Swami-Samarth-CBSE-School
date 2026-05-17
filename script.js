@@ -170,4 +170,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ---------- Notice Board / Announcements ---------- */
+  const noticeBoardBody = document.getElementById('notice-board-body');
+  if (noticeBoardBody) {
+    const sheetId = '1iHWHRZFAd4pts13cParkleL0HPgwjpWo0dK76IKURvs';
+    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`;
+
+    fetch(url)
+      .then(res => res.text())
+      .then(text => {
+        // Strip the Google visualization wrapper: "/*O_o*/\ngoogle.visualization.Query.setResponse({" ... "});"
+        // It starts with "google.visualization.Query.setResponse(" and ends with ");"
+        // Wait, text.substring(47) is standard, but a safer regex is:
+        const jsonString = text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\);/)[1];
+        const json = JSON.parse(jsonString);
+        const rows = json.table.rows;
+        
+        noticeBoardBody.innerHTML = ''; // Clear loading text
+        
+        let hasNotices = false;
+
+        rows.forEach(row => {
+          if (!row.c || !row.c[1] || !row.c[1].v) return; // Skip empty rows (must have at least a Title)
+
+          const dateStr = row.c[0] && row.c[0].v ? (row.c[0].f || row.c[0].v) : '';
+          const titleStr = row.c[1].v;
+          const descStr = row.c[2] && row.c[2].v ? row.c[2].v : '';
+
+          const item = document.createElement('div');
+          item.className = 'notice-item';
+          
+          let contentHtml = '';
+          if (dateStr) {
+            contentHtml += `<div class="notice-date">${dateStr}</div>`;
+          }
+          contentHtml += `<h4 class="notice-title">${titleStr}</h4>`;
+          if (descStr) {
+            contentHtml += `<p class="notice-desc">${descStr}</p>`;
+          }
+          
+          item.innerHTML = contentHtml;
+          noticeBoardBody.appendChild(item);
+          hasNotices = true;
+        });
+
+        if (!hasNotices) {
+          noticeBoardBody.innerHTML = '<div class="notice-item"><p class="notice-desc">No new announcements at this time.</p></div>';
+        }
+      })
+      .catch(err => {
+        console.error('Error fetching notices:', err);
+        noticeBoardBody.innerHTML = '<div class="notice-item"><p class="notice-desc" style="color:var(--danger)">Failed to load announcements. Please try again later.</p></div>';
+      });
+  }
+
 });

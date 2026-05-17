@@ -1130,6 +1130,115 @@ button {
 }
 
 /* ===================================================================
+   ANNOUNCEMENTS
+   =================================================================== */
+.announcements {
+  background: var(--off-white);
+}
+
+.notice-board-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 18px;
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+.notice-board-header {
+  background: linear-gradient(135deg, var(--navy), var(--royal));
+  color: var(--white);
+  padding: 16px 24px;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pulse-icon {
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.notice-board-body {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--off-white);
+}
+
+.notice-board-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notice-board-body::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+
+.notice-board-body::-webkit-scrollbar-thumb {
+  background-color: var(--gold);
+  border-radius: 10px;
+}
+
+.loading-notices {
+  padding: 40px;
+  text-align: center;
+  color: var(--gray-400);
+  font-style: italic;
+}
+
+.notice-item {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gray-100);
+  transition: background .3s var(--ease);
+}
+
+.notice-item:last-child {
+  border-bottom: none;
+}
+
+.notice-item:hover {
+  background: var(--gold-soft);
+}
+
+.notice-date {
+  display: inline-block;
+  background: rgba(212, 160, 23, 0.15);
+  color: var(--navy);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.notice-title {
+  font-size: 1.05rem;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.notice-desc {
+  font-size: 0.88rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* ===================================================================
    FOOTER
    =================================================================== */
 .footer {
