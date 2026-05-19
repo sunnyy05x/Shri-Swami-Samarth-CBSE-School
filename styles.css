@@ -940,6 +940,20 @@ button {
   background: var(--gold-soft);
 }
 
+.doc-link {
+  display: inline-block;
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  transition: color .25s, border-color .25s;
+}
+
+.doc-link:hover {
+  color: var(--gold);
+  border-color: transparent;
+}
+
 /* ===================================================================
    CONTACT
    =================================================================== */
