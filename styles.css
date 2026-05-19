@@ -1442,6 +1442,16 @@ button {
     flex-direction: column;
     text-align: center;
   }
+
+  .accordion-body-inner {
+    padding: 16px 16px 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .disclosure-table {
+    min-width: 650px;
+  }
 }
 
 /* Footer Utilities */
