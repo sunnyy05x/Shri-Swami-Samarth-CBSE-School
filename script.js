@@ -179,14 +179,20 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(url)
       .then(res => res.text())
       .then(text => {
-        // Strip the Google visualization wrapper
-        const match = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]+)\);/);
-        if (!match) throw new Error('Invalid response format');
+        const start = text.indexOf('{');
+        const end = text.lastIndexOf('}');
+        if (start === -1 || end === -1) throw new Error('Invalid response format');
         
-        let jsonString = match[1];
-        // Google Sheets API returns unquoted Date(y,m,d) which breaks JSON.parse
-        jsonString = jsonString.replace(/(new )?Date\([\d,]+\)/g, '"$&"');
-        const json = JSON.parse(jsonString);
+        let jsonString = text.substring(start, end + 1);
+        let json;
+        try {
+          json = JSON.parse(jsonString);
+        } catch (e) {
+          // Fallback: Fix unquoted Date objects which Google API sometimes returns
+          jsonString = jsonString.replace(/(?:new\s+)?Date\([\d,\s]+\)/g, '"$&"');
+          json = JSON.parse(jsonString);
+        }
+        
         const rows = json.table.rows;
         
         noticeBoardBody.innerHTML = ''; // Clear loading text
