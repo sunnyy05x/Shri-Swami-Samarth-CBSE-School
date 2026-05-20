@@ -576,6 +576,31 @@ button {
   margin-top: 2px;
 }
 
+.principal-text {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.principal-text p {
+  margin-bottom: 14px;
+}
+
+.principal-text .salutation {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.principal-content blockquote span {
+  font-size: 0.95rem;
+  font-style: normal;
+  color: var(--gray-400);
+  display: block;
+  margin-top: 8px;
+}
+
 /* ===================================================================
    PRESIDENT MESSAGE
    =================================================================== */
