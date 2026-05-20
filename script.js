@@ -179,10 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(url)
       .then(res => res.text())
       .then(text => {
-        // Strip the Google visualization wrapper: "/*O_o*/\ngoogle.visualization.Query.setResponse({" ... "});"
-        // It starts with "google.visualization.Query.setResponse(" and ends with ");"
-        // Wait, text.substring(47) is standard, but a safer regex is:
-        const jsonString = text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\);/)[1];
+        // Strip the Google visualization wrapper
+        const match = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]+)\);/);
+        if (!match) throw new Error('Invalid response format');
+        
+        let jsonString = match[1];
+        // Google Sheets API returns unquoted Date(y,m,d) which breaks JSON.parse
+        jsonString = jsonString.replace(/(new )?Date\([\d,]+\)/g, '"$&"');
         const json = JSON.parse(jsonString);
         const rows = json.table.rows;
         
