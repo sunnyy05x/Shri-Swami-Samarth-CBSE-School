@@ -577,6 +577,78 @@ button {
 }
 
 /* ===================================================================
+   PRESIDENT MESSAGE
+   =================================================================== */
+.president {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.president .section-title {
+  color: var(--white);
+}
+
+.president .section-badge {
+  background: rgba(212, 160, 23, 0.15);
+  color: var(--gold-light);
+}
+
+.president-content {
+  text-align: left;
+}
+
+.president-content blockquote {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--gold-light);
+  line-height: 1.6;
+  border-left: 4px solid var(--gold-light);
+  padding-left: 24px;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.president-content blockquote span {
+  font-size: 0.95rem;
+  font-style: normal;
+  color: var(--gray-200);
+  display: block;
+  margin-top: 8px;
+}
+
+.president-text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.president-text p {
+  margin-bottom: 14px;
+}
+
+.president-text .salutation {
+  font-weight: 600;
+  color: var(--gold-light);
+  font-size: 1.05rem;
+}
+
+.president-content .name {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1.15rem;
+  margin-bottom: 2px;
+}
+
+.president-content .title {
+  color: var(--gold-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* ===================================================================
    ABOUT / ACADEMICS
    =================================================================== */
 .about {
