@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Gallery — Shri Swami Samarth CBSE School</title>
+  <meta name="description"
+    content="Explore the vibrant life and learning environments at Shri Swami Samarth CBSE School. View photos and videos of our pre-primary section activities.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+
+<body>
+
+  <!-- ======================== NAVIGATION ======================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html#home" class="nav-logo">
+        <img src="images/logo.png" alt="Shri Swami Samarth Logo" class="logo-img">
+        <span>Shri Swami Samarth</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#founder">Founder</a>
+        <a href="index.html#president">President</a>
+        <a href="index.html#secretary">Secretary</a>
+        <a href="index.html#principal">Principal</a>
+        <a href="index.html#infrastructure">Infrastructure</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <div class="nav-dropdown">
+          <a href="#" class="dropdown-trigger">CBSE Corner <span class="arrow" style="font-size: 0.65rem;">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="mpd.html">Mandatory Public Disclosure</a>
+            <a href="comprehensive-info.html">Comprehensive Information</a>
+          </div>
+        </div>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="nav-cta">Apply Now →</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======================== HERO ======================== -->
+  <section class="compliance-hero">
+    <div class="container">
+      <h1>School Gallery</h1>
+      <p>A glimpse into the vibrant learning, development, and active moments at Shri Swami Samarth CBSE School</p>
+    </div>
+  </section>
+
+  <!-- ======================== GALLERY SECTION ======================== -->
+  <div class="container" style="margin-top: 40px; margin-bottom: 80px;">
+    
+    <!-- Filter Tabs -->
+    <div class="gallery-filter">
+      <button class="filter-btn active" data-filter="all">All Sections</button>
+      <button class="filter-btn" data-filter="pre-primary">Pre-primary</button>
+      <button class="filter-btn" data-filter="primary">Primary</button>
+      <button class="filter-btn" data-filter="secondary">Secondary</button>
+      <button class="filter-btn" data-filter="co-curricular">Co-curricular</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+      
+      <!-- Video Card -->
+      <div class="gallery-card video-card" data-category="pre-primary">
+        <div class="gallery-media-wrapper" data-video-src="images/gallery/pre-primary-video-1.mp4">
+          <video src="images/gallery/pre-primary-video-1.mp4" muted autoplay loop playsinline></video>
+          <div class="video-overlay-play"></div>
+        </div>
+        <div class="gallery-card-info">
+          <span class="gallery-card-tag">Pre-primary</span>
+          <h4 class="gallery-card-title">Pre-Primary Classroom Showcase</h4>
+          <p class="gallery-card-desc">Watch our young learners engage, play, and learn together in their vibrant classroom environment.</p>
+        </div>
+      </div>
+
+      <!-- Card 1 -->
+      <div class="gallery-card" data-category="pre-primary">
+        <div class="gallery-media-wrapper">
+          <img src="images/gallery/pre-primary-1.png" alt="Learning Colors & Shapes" loading="lazy">
+        </div>
+        <div class="gallery-card-info">
+          <span class="gallery-card-tag">Pre-primary</span>
+          <h4 class="gallery-card-title">Learning Colors & Shapes</h4>
+          <p class="gallery-card-desc">Pre-primary students identifying different shapes and primary colors in an interactive activity.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="gallery-card" data-category="pre-primary">
+        <div class="gallery-media-wrapper">
+          <img src="images/gallery/pre-primary-2.png" alt="Creative Art & Craft Session" loading="lazy">
+        </div>
+        <div class="gallery-card-info">
+          <span class="gallery-card-tag">Pre-primary</span>
+          <h4 class="gallery-card-title">Creative Art & Craft Session</h4>
+          <p class="gallery-card-desc">Children expressing their imagination through coloring and paper crafts under guidance.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="gallery-card" data-category="pre-primary">
+        <div class="gallery-media-wrapper">
+          <img src="images/gallery/pre-primary-3.png" alt="Fun Outdoor Group Activity" loading="lazy">
+        </div>
+        <div class="gallery-card-info">
+          <span class="gallery-card-tag">Pre-primary</span>
+          <h4 class="gallery-card-title">Fun Outdoor Group Activity</h4>
+          <p class="gallery-card-desc">Promoting physical fitness, social interaction, and team spirit with structured outdoor games.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="gallery-card" data-category="pre-primary">
+        <div class="gallery-media-wrapper">
+          <img src="images/gallery/pre-primary-4.png" alt="Interactive Board Learning" loading="lazy">
+        </div>
+        <div class="gallery-card-info">
+          <span class="gallery-card-tag">Pre-primary</span>
+          <h4 class="gallery-card-title">Interactive Board Learning</h4>
+          <p class="gallery-card-desc">Children participating in active learning using visual boards to build basic vocabulary.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="gallery-card" data-category="pre-primary">
+        <div class="gallery-media-wrapper">
+          <img src="images/gallery/pre-primary-5.png" alt="Motor Skill Development" loading="lazy">
+        </div>
+        <div class="gallery-card-info">
+          <span class="gallery-card-tag">Pre-primary</span>
+          <h4 class="gallery-card-title">Motor Skill Development</h4>
+          <p class="gallery-card-desc">Building fine motor skills and logic through block building and spatial puzzle games.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="gallery-card" data-category="pre-primary">
+        <div class="gallery-media-wrapper">
+          <img src="images/gallery/pre-primary-6.png" alt="Group Storytelling Activity" loading="lazy">
+        </div>
+        <div class="gallery-card-info">
+          <span class="gallery-card-tag">Pre-primary</span>
+          <h4 class="gallery-card-title">Group Storytelling Activity</h4>
+          <p class="gallery-card-desc">Cultivating listening skills, vocabulary, and empathy through engaging teacher-led story sessions.</p>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="gallery-card" data-category="pre-primary">
+        <div class="gallery-media-wrapper">
+          <img src="images/gallery/pre-primary-7.png" alt="Hand-Eye Coordination Play" loading="lazy">
+        </div>
+        <div class="gallery-card-info">
+          <span class="gallery-card-tag">Pre-primary</span>
+          <h4 class="gallery-card-title">Hand-Eye Coordination Play</h4>
+          <p class="gallery-card-desc">Pre-primary students practicing coordination with sorting toys in a safe classroom setting.</p>
+        </div>
+      </div>
+
+      <!-- Empty/Coming Soon placeholder state (will display if a tab has no elements) -->
+      <div class="gallery-empty" style="display: none;">
+        <span class="gallery-empty-icon">📸</span>
+        <h3>Section Updates Coming Soon</h3>
+        <p>We are currently gathering highlights and media files for this section. Check back soon to see updates!</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================== LIGHTBOX MODAL ======================== -->
+  <div id="lightbox" class="lightbox-modal">
+    <button class="lightbox-btn lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-btn lightbox-prev" aria-label="Previous image">&#10094;</button>
+    <button class="lightbox-btn lightbox-next" aria-label="Next image">&#10095;</button>
+    <div class="lightbox-container">
+      <div class="lightbox-media-wrapper">
+        <!-- Media (img or video) will be dynamically injected here -->
+      </div>
+      <div class="lightbox-caption">
+        <!-- Text overlay will be injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html#home" class="nav-logo footer-logo">
+            <img src="images/logo.png" alt="Shri Swami Samarth Logo" class="logo-img">
+            <span class="footer-logo-text">Shri Swami Samarth</span>
+          </a>
+          <p>A CBSE-affiliated school in Pimpri Chinchwad, Pune, dedicated to nurturing future leaders through holistic
+            education and values-based learning.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#infrastructure">Infrastructure</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="mpd.html">Mandatory Public Disclosure (MPD)</a></li>
+            <li><a href="comprehensive-info.html">Comprehensive Information</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Academics</h4>
+          <ul>
+            <li><a href="index.html#about">CBSE Curriculum</a></li>
+            <li><a href="index.html#about">Mission & Vision</a></li>
+            <li><a href="mpd.html#result">CBSE Board Results</a></li>
+            <li><a href="comprehensive-info.html">Comprehensive Information</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item">
+            <a href="https://www.google.com/maps/search/?api=1&query=Shri+Swami+Samarth+CBSE+School+Bhosari+Pune+411026"
+              target="_blank" rel="noopener noreferrer">
+              <span class="icon">📍</span>
+              <span>414, Anandrao Lande Road, Bhosari, Pimpri Chinchwad, Pune – 411026</span>
+            </a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>
+              <a href="tel:02027123490">020-27123490</a> /
+              <a href="tel:+917218343979">+91 72183 43979</a>
+            </span>
+          </div>
+          <div class="footer-contact-item">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=swamisamarthcbse@gmail.com" target="_blank"
+              rel="noopener noreferrer">
+              <span class="icon">✉️</span>
+              <span>swamisamarthcbse@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Shri Swami Samarth CBSE School. All rights reserved.</span>
+        <span>Proudly CBSE Affiliated | Affiliation No. 1130909</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
