@@ -1711,13 +1711,16 @@ button {
     flex-direction: column;
     padding: 100px 32px 40px;
     gap: 24px;
-    transition: right .35s var(--ease);
+    transition: right .35s var(--ease), visibility .35s var(--ease);
     box-shadow: -8px 0 40px rgba(0, 0, 0, .3);
     align-items: flex-start;
+    visibility: hidden;
+    z-index: 1002;
   }
 
   .nav-links.open {
     right: 0;
+    visibility: visible;
   }
 
   /* Mobile Dropdown styles */

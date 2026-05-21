@@ -71,19 +71,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Scroll-Reveal Animations ---------- */
   const revealEls = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: immediately make all reveal elements visible
+    revealEls.forEach(el => el.classList.add('visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    
+    revealEls.forEach((el, i) => {
+      el.style.transitionDelay = `${i % 4 * 0.1}s`;
+      revealObserver.observe(el);
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-  
-  revealEls.forEach((el, i) => {
-    el.style.transitionDelay = `${i % 4 * 0.1}s`;
-    revealObserver.observe(el);
-  });
+  }
 
   /* ---------- Animated Counters ---------- */
   const counters = document.querySelectorAll('[data-count]');
@@ -121,13 +126,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const statsBar = document.querySelector('.stats-bar');
   if (statsBar) {
-    const statsObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        animateCounters();
-        statsObserver.unobserve(statsBar);
-      }
-    }, { threshold: 0.3 });
-    statsObserver.observe(statsBar);
+    if (!('IntersectionObserver' in window)) {
+      animateCounters();
+    } else {
+      const statsObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(statsBar);
+        }
+      }, { threshold: 0.1 });
+      statsObserver.observe(statsBar);
+    }
   }
 
   /* ---------- Accordion ---------- */
