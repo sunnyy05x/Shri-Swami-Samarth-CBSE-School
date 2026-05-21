@@ -345,9 +345,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!lightbox) return;
     
     currentItems = getVisibleItems();
-    const title = cardElement.querySelector('.gallery-card-title')?.textContent;
+    const mediaWrap = cardElement.querySelector('.gallery-media-wrapper');
+    const isVideo = cardElement.classList.contains('video-card') || mediaWrap?.dataset.videoSrc;
+    const src = isVideo ? mediaWrap?.dataset.videoSrc : mediaWrap?.querySelector('img')?.getAttribute('src');
     
-    currentIndex = currentItems.findIndex(item => item.title === title);
+    currentIndex = currentItems.findIndex(item => item.src === src);
     if (currentIndex === -1) currentIndex = 0;
 
     updateLightboxMedia();
