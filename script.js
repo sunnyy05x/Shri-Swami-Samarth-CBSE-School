@@ -15,12 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   // Close menu on link click
-  navLinks?.querySelectorAll('a').forEach(link => {
+  navLinks?.querySelectorAll('a:not(.dropdown-trigger)').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       navLinks.classList.remove('open');
       document.body.style.overflow = '';
     });
+  });
+
+  // Dropdown toggle for Mobile
+  const dropdownTrigger = document.querySelector('.dropdown-trigger');
+  const navDropdown = document.querySelector('.nav-dropdown');
+  const arrow = dropdownTrigger?.querySelector('.arrow');
+  
+  dropdownTrigger?.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      navDropdown.classList.toggle('active');
+      if (arrow) {
+        arrow.style.transform = navDropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+      }
+    }
   });
 
   /* ---------- Navbar Scroll Effect ---------- */
@@ -32,15 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Active Nav Link ---------- */
   const sections = document.querySelectorAll('section[id]');
   const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const complianceAnchors = document.querySelectorAll('.compliance-nav-link');
   
   function updateActiveLink() {
-    const scrollY = window.scrollY + 100;
+    const scrollY = window.scrollY + 120;
     sections.forEach(section => {
-      const top = section.offsetTop - 100;
+      const top = section.offsetTop - 120;
       const bottom = top + section.offsetHeight;
       const id = section.getAttribute('id');
       if (scrollY >= top && scrollY < bottom) {
         navAnchors.forEach(a => {
+          a.classList.remove('active');
+          if (a.getAttribute('href') === '#' + id) a.classList.add('active');
+        });
+        complianceAnchors.forEach(a => {
           a.classList.remove('active');
           if (a.getAttribute('href') === '#' + id) a.classList.add('active');
         });
@@ -160,9 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------- Smooth scroll for CTA buttons ---------- */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
+      const href = this.getAttribute('href');
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });

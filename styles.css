@@ -241,6 +241,238 @@ button {
   width: 100%;
 }
 
+/* ---------- Dropdown Menu ---------- */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy-light);
+  box-shadow: var(--shadow-lg);
+  border-radius: 12px;
+  min-width: 260px;
+  padding: 12px 0;
+  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 12px;
+}
+
+/* Add a triangle indicator */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: var(--navy-light);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.dropdown-menu a::after {
+  display: none !important; /* Hide underline slide */
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--gold-light) !important;
+  padding-left: 24px;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- Compliance Subpages Layout ---------- */
+.compliance-hero {
+  background: linear-gradient(135deg, var(--navy), var(--royal));
+  padding: 140px 0 80px;
+  text-align: center;
+  color: var(--white);
+  border-bottom: 2px solid var(--gold);
+}
+
+.compliance-hero h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+
+.compliance-hero p {
+  color: var(--gray-200);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.compliance-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+.compliance-sidebar {
+  position: sticky;
+  top: 100px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.compliance-sidebar h3 {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--gray-100);
+  padding-bottom: 8px;
+}
+
+.compliance-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.compliance-nav-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.25s;
+  border-left: 3px solid transparent;
+}
+
+.compliance-nav-link:hover {
+  background: var(--off-white);
+  color: var(--navy);
+}
+
+.compliance-nav-link.active {
+  background: var(--gold-soft);
+  color: var(--navy);
+  border-left-color: var(--gold);
+  font-weight: 600;
+}
+
+.compliance-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.compliance-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  scroll-margin-top: 100px;
+}
+
+.compliance-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--navy);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Comprehensive Information specific styling */
+.comp-list-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comp-table th {
+  background: var(--navy);
+  color: var(--white);
+  text-align: left;
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.comp-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.comp-table tr:nth-child(even) td {
+  background: var(--off-white);
+}
+
+.comp-table tr:hover td {
+  background: var(--gold-soft);
+}
+
+.comp-table td strong {
+  color: var(--navy);
+}
+
+@media (max-width: 992px) {
+  .compliance-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .compliance-sidebar {
+    position: static;
+    margin-bottom: 20px;
+  }
+}
+
+
 .nav-cta {
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   color: var(--navy) !important;
@@ -1486,6 +1718,42 @@ button {
 
   .nav-links.open {
     right: 0;
+  }
+
+  /* Mobile Dropdown styles */
+  .nav-dropdown {
+    width: 100%;
+  }
+  .nav-dropdown .dropdown-trigger {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .dropdown-menu {
+    display: none;
+    position: static;
+    transform: none;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: none;
+    border: none;
+    border-radius: 8px;
+    margin-top: 8px;
+    min-width: 100%;
+    padding: 8px 0;
+  }
+  .dropdown-menu::before {
+    display: none;
+  }
+  .dropdown-menu a {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  .dropdown-menu a:hover {
+    padding-left: 20px;
+    background: transparent;
+  }
+  
+  .nav-dropdown.active .dropdown-menu {
+    display: block;
   }
 
   .hamburger {
