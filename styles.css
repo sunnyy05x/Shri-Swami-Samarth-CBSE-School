@@ -2546,6 +2546,19 @@ button {
   position: relative;
 }
 
+.immersive-content.full-width {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.immersive-content.full-width .content-inner {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .content-inner {
   max-width: 550px;
 }
