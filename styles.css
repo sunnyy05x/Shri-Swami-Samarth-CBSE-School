@@ -2643,14 +2643,15 @@ button {
   }
   .immersive-content {
     width: 100%;
-    height: 55%;
+    height: 60%;
     padding: 2rem;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
+    overflow-y: auto; /* Allow scrolling if text is too long */
   }
   .immersive-image-pane {
     width: 100%;
-    height: 45%;
+    height: 40%;
   }
   .slide-number {
     font-size: 3.5rem;
