@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Shri Swami Samarth CBSE School</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <!-- ======================== NAVIGATION ======================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Shri Swami Samarth Logo" class="logo-img">
+        <span>Shri Swami Samarth</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="academics.html">Academics</a>
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="admissions.html">Admissions</a>
+        <div class="nav-dropdown">
+          <a href="#" class="dropdown-trigger">CBSE Corner <span class="arrow" style="font-size: 0.65rem;">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="disclosures.html">Mandatory Public Disclosure</a>
+            <a href="comprehensive-info.html">Comprehensive Information</a>
+          </div>
+        </div>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="admissions.html" class="nav-cta">Apply Now →</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======================== PAGE HERO ======================== -->
+  <section class="page-hero" style="background: url('images/hero.jpg') center/cover no-repeat; position: relative; padding: 120px 0 60px;">
+    <div class="hero-overlay" style="position: absolute; inset: 0; background: rgba(0, 33, 71, 0.8);"></div>
+    <div class="container" style="position: relative; z-index: 2; text-align: center; color: white;">
+      <h1 style="font-size: 3rem; margin-bottom: 10px;">Contact Us</h1>
+      <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">We'd love to hear from you</p>
+    </div>
+  </section>
+
+  <!-- ======================== CONTACT US ======================== -->
+  <section class="contact section-pad" id="contact">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-badge">Get in Touch</span>
+        <h2 class="section-title">Reach Out to Us</h2>
+        <p class="section-subtitle">Whether you have a question about admissions, programs, or anything else — our team is ready to help.</p>
+      </div>
+      <div class="contact-grid">
+        <!-- Left: Info + Map -->
+        <div class="reveal">
+          <div class="contact-info-cards">
+            <div class="contact-info-card">
+              <div class="contact-info-icon">📍</div>
+              <div>
+                <h4>Visit Us</h4>
+                <p>414, Anandrao Lande Road, Sector No.2,<br>Indrayani Nagar, Bhosari,<br>Pimpri Chinchwad, Pune,<br>Maharashtra — 411026</p>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-info-icon">📞</div>
+              <div>
+                <h4>Call Us</h4>
+                <p>020-27123490<br>+91 72183 43979</p>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-info-icon">✉️</div>
+              <div>
+                <h4>Email Us</h4>
+                <p>swamisamarthcbse@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.498!2d73.8415!3d18.6375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b80e6b4bb4b1%3A0x53f6c97a6b55f1fc!2sShri%20Swami%20Samarth%20CBSE%20School!5e0!3m2!1sen!2sin!4v1700000000000"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="School Location"></iframe>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="reveal">
+          <form class="contact-form" id="contactForm">
+            <h3>Send us a Message</h3>
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message →</button>
+          </form>
+          <div class="form-success">
+            <div class="check">✓</div>
+            <h4>Message Sent Successfully!</h4>
+            <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo footer-logo">
+            <img src="images/logo.png" alt="Shri Swami Samarth Logo" class="logo-img">
+            <span class="footer-logo-text">Shri Swami Samarth</span>
+          </a>
+          <p>A CBSE-affiliated school in Pimpri Chinchwad, Pune, dedicated to nurturing future leaders through holistic education and values-based learning.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="infrastructure.html">Infrastructure</a></li>
+            <li><a href="disclosures.html">Mandatory Public Disclosure (MPD)</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Academics</h4>
+          <ul>
+            <li><a href="academics.html">CBSE Curriculum</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="disclosures.html#result">CBSE Board Results</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>414, Anandrao Lande Road, Bhosari, Pimpri Chinchwad, Pune – 411026</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>020-27123490 / +91 72183 43979</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">✉️</span>
+            <span>swamisamarthcbse@gmail.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Shri Swami Samarth CBSE School. All rights reserved.</span>
+        <span>Proudly CBSE Affiliated | Affiliation No. 1130909</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
