@@ -500,4 +500,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', updateSliderButtons);
   }
 
+  /* ---------- Immersive Horizontal Slider ---------- */
+  const immersiveViewport = document.getElementById('immersiveViewport');
+  if (immersiveViewport) {
+    // Map vertical wheel scroll to horizontal scroll
+    immersiveViewport.addEventListener('wheel', (e) => {
+      // If the scroll is mostly vertical, hijack it
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        // Determine direction and scroll by one full viewport width
+        // The CSS scroll-snap-type will naturally align it to the slide
+        const direction = e.deltaY > 0 ? 1 : -1;
+        immersiveViewport.scrollBy({
+          left: direction * window.innerWidth,
+          behavior: 'smooth'
+        });
+      }
+    }, { passive: false });
+  }
+
 });

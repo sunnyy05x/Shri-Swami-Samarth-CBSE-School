@@ -2503,3 +2503,153 @@ button {
     display: none; /* Hide on mobile for touch swipe */
   }
 }
+
+/* ===================================================================
+   IMMERSIVE HORIZONTAL SLIDER
+   =================================================================== */
+.immersive-viewport {
+  width: 100vw;
+  height: 100vh;
+  /* Accommodate the fixed navbar padding */
+  padding-top: 80px; 
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  background: var(--navy);
+  position: relative;
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+}
+.immersive-viewport::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.immersive-slide {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  scroll-snap-align: start;
+  display: flex;
+  overflow: hidden;
+}
+
+.immersive-content {
+  width: 40%;
+  height: 100%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  padding: 0 5rem;
+  position: relative;
+}
+
+.content-inner {
+  max-width: 550px;
+}
+
+.slide-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.05);
+  margin-bottom: -1.2rem;
+  line-height: 1;
+  transform: translateX(-10px);
+}
+
+.immersive-content h2 {
+  font-size: 3.5rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.immersive-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-body);
+}
+
+.immersive-image-pane {
+  width: 60%;
+  height: 100%;
+  position: relative;
+  background: var(--gray-800);
+  overflow: hidden;
+}
+
+.immersive-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.immersive-slide:hover .immersive-img {
+  transform: scale(1.04);
+}
+
+/* Image Placeholder for before upload */
+.image-placeholder {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, rgba(10,31,68,0.9), rgba(10,31,68,0.5));
+}
+
+.image-placeholder span {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 1200px) {
+  .immersive-content {
+    padding: 0 3rem;
+  }
+  .immersive-content h2 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .immersive-slide {
+    flex-direction: column;
+  }
+  .immersive-content {
+    width: 100%;
+    height: 55%;
+    padding: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .immersive-image-pane {
+    width: 100%;
+    height: 45%;
+  }
+  .slide-number {
+    font-size: 3.5rem;
+    margin-bottom: -0.5rem;
+    transform: none;
+  }
+  .immersive-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  .immersive-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
