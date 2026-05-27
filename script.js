@@ -455,4 +455,49 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') navigateLightbox('prev');
   });
 
+  /* ---------- Horizontal Scroll Snap Slider ---------- */
+  const track = document.getElementById('sliderTrack');
+  const prevBtn = document.getElementById('slidePrev');
+  const nextBtn = document.getElementById('slideNext');
+  
+  if (track && prevBtn && nextBtn) {
+    const cardWidth = 384; // 360px card width + 24px gap
+    
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    });
+    
+    // Toggle button opacity and state based on scroll bounds
+    const updateSliderButtons = () => {
+      const scrollLeft = track.scrollLeft;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      
+      if (scrollLeft <= 5) {
+        prevBtn.style.opacity = '0.4';
+        prevBtn.style.pointerEvents = 'none';
+      } else {
+        prevBtn.style.opacity = '1';
+        prevBtn.style.pointerEvents = 'auto';
+      }
+      
+      if (scrollLeft >= maxScroll - 5) {
+        nextBtn.style.opacity = '0.4';
+        nextBtn.style.pointerEvents = 'none';
+      } else {
+        nextBtn.style.opacity = '1';
+        nextBtn.style.pointerEvents = 'auto';
+      }
+    };
+    
+    track.addEventListener('scroll', updateSliderButtons);
+    // Initial call after elements layout settles
+    setTimeout(updateSliderButtons, 200);
+    // Update on window resize as clientWidth/scrollWidth may change
+    window.addEventListener('resize', updateSliderButtons);
+  }
+
 });

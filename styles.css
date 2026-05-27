@@ -2223,18 +2223,18 @@ button {
 }
 
 /* ===================================================================
-   PANAAH COMMUNITIES STYLED SECTIONS FOR INFRASTRUCTURE
+   PANAAH STYLED HERO - SCHOOL THEME COLORS
    =================================================================== */
 .panaah-green-section {
-  background: #0d8a43; /* Panaah Green */
+  background: var(--navy); /* Changed from green to Navy */
   color: var(--white);
   padding: 80px 0;
   overflow: hidden;
 }
 
 .panaah-gold-section {
-  background: #fabc09; /* Panaah Gold/Yellow */
-  color: var(--white);
+  background: var(--gold); /* Changed from bright yellow to school Gold */
+  color: var(--navy);      /* Changed text color to Navy for contrast */
   padding: 100px 0;
   overflow: hidden;
 }
@@ -2276,7 +2276,7 @@ button {
   width: calc(100% + 16px);
   height: calc(100% + 16px);
   pointer-events: none;
-  color: #aed581; /* Light green stroke color */
+  color: var(--gold); /* Changed from light green to Gold */
 }
 
 .panaah-circle-wrap {
@@ -2301,7 +2301,7 @@ button {
   width: calc(100% + 30px);
   height: calc(100% + 30px);
   pointer-events: none;
-  color: #fff275; /* Bright yellow brush color */
+  color: rgba(255, 255, 255, 0.85); /* Changed from yellow to semi-transparent white */
 }
 
 .panaah-title {
@@ -2311,6 +2311,10 @@ button {
   letter-spacing: 0.5px;
   margin-bottom: 12px;
   text-transform: uppercase;
+}
+
+.panaah-gold-section .panaah-title {
+  color: var(--navy); /* Navy title on gold background */
 }
 
 .panaah-heading {
@@ -2327,7 +2331,7 @@ button {
 }
 
 .panaah-gold-section .panaah-heading {
-  color: #1a73e8; /* Vibrant electric blue heading */
+  color: var(--navy); /* Deep navy heading on gold background */
 }
 
 .panaah-text {
@@ -2337,8 +2341,165 @@ button {
   max-width: 580px;
 }
 
+.panaah-gold-section .panaah-text {
+  color: rgba(10, 31, 68, 0.9); /* Dark navy-light body text on gold background */
+}
+
 @media (max-width: 991px) {
   .panaah-text {
     margin: 0 auto;
+  }
+}
+
+/* ===================================================================
+   HORIZONTAL SCROLL SNAP SLIDER (INFRASTRUCTURE)
+   =================================================================== */
+.slider-container-wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.snap-slider-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 24px;
+  padding: 24px 8px 48px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.snap-slider-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.snap-slider-card {
+  flex: 0 0 360px;
+  scroll-snap-align: start;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+
+.snap-slider-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.slider-img-placeholder {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, var(--navy), var(--royal));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  color: var(--gold-light);
+}
+
+.slider-img-placeholder span {
+  font-size: 3rem;
+  z-index: 1;
+}
+
+.slider-img-placeholder::after {
+  content: 'Photo Coming Soon';
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.slider-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.slider-card-body {
+  padding: 28px 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-card-body h3 {
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.slider-card-body p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+/* Slider buttons */
+.slider-arrow-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  color: var(--navy);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 0.9rem;
+  transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.slider-arrow-btn:hover {
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+  border-color: var(--navy);
+}
+
+.slider-arrow-btn.prev-btn {
+  left: -15px;
+}
+
+.slider-arrow-btn.next-btn {
+  right: -15px;
+}
+
+.slider-arrow-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .slider-container-wrap {
+    padding: 0 12px;
+  }
+  .snap-slider-card {
+    flex: 0 0 300px;
+  }
+  .slider-arrow-btn {
+    display: none; /* Hide on mobile for touch swipe */
   }
 }
