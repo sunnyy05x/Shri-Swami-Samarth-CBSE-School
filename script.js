@@ -503,20 +503,54 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Immersive Horizontal Slider ---------- */
   const immersiveViewport = document.getElementById('immersiveViewport');
   if (immersiveViewport) {
-    // Map vertical wheel scroll to horizontal scroll
+    // Lock document body and html to prevent vertical page scrolling / bouncing
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+
+    let activeSlideIndex = 0;
+    const slides = immersiveViewport.querySelectorAll('.immersive-slide');
+    const totalSlides = slides.length;
+    let isScrolling = false;
+
+    // Map vertical wheel scroll to horizontal scroll with throttling to avoid glitchy scrolling
     immersiveViewport.addEventListener('wheel', (e) => {
-      // If the scroll is mostly vertical, hijack it
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
         e.preventDefault();
-        // Determine direction and scroll by one full viewport width
-        // The CSS scroll-snap-type will naturally align it to the slide
+        
+        if (isScrolling) return; // Prevent scroll spamming during animation
+        
         const direction = e.deltaY > 0 ? 1 : -1;
-        immersiveViewport.scrollBy({
-          left: direction * window.innerWidth,
-          behavior: 'smooth'
-        });
+        const nextIndex = activeSlideIndex + direction;
+        
+        if (nextIndex >= 0 && nextIndex < totalSlides) {
+          activeSlideIndex = nextIndex;
+          isScrolling = true;
+          
+          immersiveViewport.scrollTo({
+            left: activeSlideIndex * window.innerWidth,
+            behavior: 'smooth'
+          });
+          
+          // Debounce scroll events for 600ms (duration of smooth scroll)
+          setTimeout(() => {
+            isScrolling = false;
+          }, 600);
+        }
       }
     }, { passive: false });
+
+    // Update active slide index if user scrolls manually (e.g. on touch devices or trackpads)
+    immersiveViewport.addEventListener('scroll', () => {
+      if (!isScrolling) {
+        activeSlideIndex = Math.round(immersiveViewport.scrollLeft / window.innerWidth);
+      }
+    });
+
+    // Handle window resize to adjust scroll position to the current active slide
+    window.addEventListener('resize', () => {
+      immersiveViewport.scrollLeft = activeSlideIndex * window.innerWidth;
+    });
   }
+
 
 });
